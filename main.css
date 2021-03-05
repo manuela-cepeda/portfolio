@@ -1,0 +1,854 @@
+@import url(//db.onlinewebfonts.com/c/0923ee644c97a87d70269aa80a6f1e79?family=The+Historia+Demo);
+@font-face {
+    font-family: "The Historia Demo";
+    src: url("//db.onlinewebfonts.com/t/0923ee644c97a87d70269aa80a6f1e79.eot");
+    src: url("//db.onlinewebfonts.com/t/0923ee644c97a87d70269aa80a6f1e79.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0923ee644c97a87d70269aa80a6f1e79.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0923ee644c97a87d70269aa80a6f1e79.woff") format("woff"), url("//db.onlinewebfonts.com/t/0923ee644c97a87d70269aa80a6f1e79.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0923ee644c97a87d70269aa80a6f1e79.svg#The Historia Demo") format("svg");
+}
+
+
+/*Start global*/
+
+ :root {
+    --main-gd-color: #bfe9ff;
+    --second-gd-color: #ff6e7f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'roboto', sans-serif;
+    color: #eee;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(295deg, #505467 0, #1f3259 50%, #00154b 100%) fixed;
+    /* background: url(imagenes/fondo.png) no-repeat center fixed; */
+}
+
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+span {
+    font-style: italic;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-align: justify;
+    margin-top: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    img {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        /*pude centrar la imagen con esto */
+    }
+}
+
+
+/*End global*/
+
+
+/*Start reusable*/
+
+.container {
+    width: 90%;
+    max-width: 120rem;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 85%;
+    }
+}
+
+.section-heading {
+    text-align: center;
+    margin: 10rem 0;
+}
+
+.section-heading h1 {
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, .3);
+    text-transform: uppercase;
+    font-weight: 300;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.section-heading h1::before,
+.section-heading h1::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.section-heading h1::before {
+    width: 20rem;
+    height: 2px;
+    border-radius: .8rem;
+}
+
+.section-heading h1::after {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    bottom: -1.5rem;
+}
+
+.section-heading h6 {
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: 'the Historia Demo'
+}
+
+.has-margin-right {
+    margin-right: 5rem;
+}
+
+
+/*End reusable*/
+
+
+/*Start header*/
+
+header {
+    width: 100%;
+    height: 100vh;
+}
+
+.top-nav {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: -100vh;
+    z-index: 50;
+    background-color: #16162d;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    transition: all 650ms cubic-bezier(1, 0, 0, 1);
+}
+
+.nav-list {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    margin: 0 2rem;
+}
+
+.nav-link {
+    font-family: 'The Historia Demo', sans-serif;
+    font-size: 4rem;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+    }
+    .nav-list li {
+        margin: 2rem 0;
+    }
+    .nav-link {
+        font-size: 4.5rem;
+    }
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background: linear-gradient(to top, var(--main-gd-color), var(--second-gd-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.top-nav.open {
+    top: 0;
+    border-radius: initial;
+}
+
+.menu-toggler {
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+    width: 5rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1500;
+    transition: 650ms ease-out;
+}
+
+@media (max-width:768px) {
+    .menu-toggler {
+        top: 2rem;
+        right: 2rem;
+    }
+}
+
+.menu-toggler.open {
+    transform: rotate(-45deg);
+}
+
+.bar {
+    background: linear-gradient(to right, var(--main-gd-color), var(--second-gd-color));
+    width: 100%;
+    height: 3px;
+    border-radius: 8rem;
+}
+
+.bar.half {
+    width: 50%;
+}
+
+.bar.start {
+    transform-origin: right;
+    transition: 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+.open.bar.start {
+    transform: rotate(-450deg) translateX(.8rem);
+}
+
+.bar.end {
+    align-self: flex-end;
+    transform-origin: left;
+    transition: 650ms cubic-bezier(0.54, -0.80, 0.57, 0.57);
+}
+
+.open.bar.end {
+    transform: rotate(-450deg) translateX(-.8rem);
+}
+
+.landing-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.landing-text h1 {
+    font-size: 20rem;
+    font-family: 'The Historia Demo', sans-serif;
+    font-weight: lighter;
+    background: linear-gradient(to top, var(--main-gd-color), var(--second-gd-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 2rem;
+    user-select: none;
+}
+
+.landing-text h1 {
+    font-size: 10rem;
+    font-family: 'The Historia Demo', sans-serif;
+    background: linear-gradient(to top, var(--main-gd-color), var(--second-gd-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 2rem;
+    user-select: none;
+}
+
+.landing-text h6 {
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .landing-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+    }
+    .landing-text h1 {
+        font-size: 20rem;
+    }
+    .landing-text h6 {
+        text-align: end;
+    }
+}
+
+
+/*End header*/
+
+
+/*Start about*/
+
+@media (min-width:768px) {
+    .about {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .profile-img {
+        margin-right: 10rem;
+        margin-bottom: 10rem;
+    }
+}
+
+.profile-img {
+    width: 90%;
+    margin-bottom: 5rem;
+}
+
+.about-heading {
+    text-align: center;
+    line-height: 0;
+    margin-bottom: 6rem;
+}
+
+.about-heading h1 {
+    font-size: 10rem;
+    opacity: .3;
+    text-transform: uppercase;
+}
+
+.about-heading h6 {
+    font-size: 7rem;
+    font-weight: 300;
+    font-family: 'the Historia Demo', sans-serif;
+}
+
+ul.icon-list {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media {
+    margin-top: 5rem;
+}
+
+.social-media i {
+    font-size: 4rem;
+    transition: color 650ms;
+    -webkit-box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+    box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+}
+
+.fa-github-square:hover,
+.fa-github-square:focus {
+    background: linear-gradient(to top, var(--main-gd-color), var(--second-gd-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-linkedin:hover,
+.fa-linkedin:focus {
+    background: linear-gradient(to top, var(--main-gd-color), var(--second-gd-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* .descargar-cv {
+    background-color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1f3259;
+    -webkit-box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+    box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+}
+
+.descargar-cv:hover,
+.descargar-cv:focus {
+    background: linear-gradient(to top, var(--main-gd-color), var(--second-gd-color));
+} */
+
+
+/*End about*/
+
+
+/*Start services*/
+
+.skill {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 2rem -2px 2rem 2;
+}
+
+.skill h1 {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.icon-container {
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+}
+
+.icon-container i {
+    background: linear-gradient(to top, var(--main-gd-color), var(--second-gd-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 7rem;
+    margin: 0;
+}
+
+.skill-container {
+    width: 100%;
+    margin-bottom: 10rem;
+}
+
+@media (min-width: 768px) {
+    .skill {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .skill h1 {
+        margin-left: 5rem;
+        text-align: left;
+    }
+    .icon-container {
+        width: 30rem;
+        height: 50%;
+        padding-top: 7rem;
+    }
+    .icon-container i {
+        margin: 0 0 10rem 15rem;
+    }
+    .skill-container {
+        width: 70%;
+        padding: 20px;
+        margin-right: 10rem;
+    }
+}
+
+.skill-container li {
+    position: relative;
+    list-style: none;
+    margin: 5rem;
+    text-transform: uppercase;
+}
+
+.skill-container li::before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-color: Var(--main-gd-color);
+    border-radius: 1000px;
+}
+
+.skill-container li::after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 0;
+    height: 15px;
+    background-color: var(--second-gd-color);
+    border-radius: 1000px;
+    animation-duration: .7s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+.animation li.ph::after {
+    animation-name: ph;
+}
+
+.animation li.il::after {
+    animation-name: il;
+}
+
+.animation li.XD::after {
+    animation-name: XD;
+}
+
+.animation li.html::after {
+    animation-name: html;
+}
+
+.animation li.css::after {
+    animation-name: css;
+}
+
+.animation li.js::after {
+    animation-name: js;
+}
+
+.animation li.jquery::after {
+    animation-name: jquery;
+}
+
+.animation li.react::after {
+    animation-name: react;
+}
+
+.animation li.git::after {
+    animation-name: git;
+}
+
+.animation li.php::after {
+    animation-name: php;
+}
+
+.animation li.sql::after {
+    animation-name: sql;
+}
+
+
+/*End services*/
+
+
+/*Start portfolio*/
+
+
+/*         
+                    .portfolio-item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-bottom: 5rem;
+                    }
+                    
+                    .portfolio-item: last-child {
+                        margin-bottom: 0
+                    }
+                    
+                    .portfolio-img {
+                        width: 50rem;
+                        flex: 1;
+                    }
+                    
+                    .portfolio-description {
+                        flex: 1;
+                    }
+                    
+                    .portfolio-description h1 {
+                        font-size: 1.5rem;
+                        text-transform: uppercase;
+                        font-weight: 300;
+                        margin: 1rem 0;
+                    }
+                    
+                    .portfolio-description h6 {
+                        font-size: 3rem;
+                        font-weight: 300;
+                        opacity: .3;
+                    } */
+
+
+/* incompletoo */
+
+
+/*End portfolio*/
+
+
+/*Start timeline*/
+
+.timeline ul {
+    border-left: 4px solid var(--main-gd-color);
+    border-radius: .8rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+    position: relative;
+    padding: 5rem;
+    list-style: none;
+    text-align: left;
+    width: 70%;
+}
+
+@media (max-width: 788px) {
+    .timeline ul {
+        width: 80%;
+    }
+}
+
+.timeline h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    opacity: .3;
+}
+
+.timeline p {
+    text-align: left;
+}
+
+.timeline .date {
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.timeline .date:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+}
+
+.timeline .date::before,
+.timeline .date::after {
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline .date::before {
+    content: attr(data-date);
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    left: -11rem;
+    min-width: 12rem;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    /* .timeline ul {
+                margin: 0 0 0 auto;
+            } */
+    .timeline .date::before {
+        writing-mode: horizontal-tb;
+        text-align: right;
+        left: -21rem;
+    }
+}
+
+.timeline .date::after {
+    content: '';
+    box-shadow: 0 0 0 4px var(--second-gd-color);
+    border-radius: 100%;
+    left: -8rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #091d4f;
+}
+
+.link {
+    display: block;
+    font-size: 1.7rem;
+    opacity: .3;
+    margin-top: 1rem;
+    font-weight: 300;
+}
+
+
+/*End timeline*/
+
+
+/*Start contact*/
+
+.contact {
+    /* background-color: #221e3f; */
+    margin-bottom: 5rem;
+}
+
+form {
+    width: 70%;
+    margin: 0 auto;
+}
+
+form label {
+    font-size: 1.5rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: none;
+    outline-color: var(--second-gd-color);
+}
+
+.link-contact {
+    font-size: 1.4rem;
+    background-color: var(--second-gd-color);
+    color: #eee;
+    padding: 1rem 2rem;
+    border-radius: 8rem;
+    cursor: pointer;
+    transition: background-color 650ms;
+    -webkit-box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+    box-shadow: 2px 17px 13px -6px rgba(0, 0, 0, 0.18);
+}
+
+.link-contact:hover {
+    color: #221e3f;
+    background-color: var(--main-gd-color);
+}
+
+
+/*End contact*/
+
+
+/*Start footer*/
+
+.copyright {
+    width: 100%;
+    background-color: #16162d;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.copyright p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.up {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    background-color: #eee;
+    top: -2.5rem;
+    right: 5rem;
+    border-radius: 100%;
+    display: flex;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+.up i {
+    color: #16162d;
+    font-size: 2rem;
+    margin: auto;
+}
+
+
+/*End footer*/
+
+
+/*Start animations*/
+
+@keyframes ph {
+    to {
+        width: 90%;
+    }
+}
+
+@keyframes il {
+    to {
+        width: 50%;
+    }
+}
+
+@keyframes XD {
+    to {
+        width: 20%;
+    }
+}
+
+@keyframes html {
+    to {
+        width: 80%;
+    }
+}
+
+@keyframes css {
+    to {
+        width: 70%;
+    }
+}
+
+@keyframes js {
+    to {
+        width: 60%;
+    }
+}
+
+@keyframes jquery {
+    to {
+        width: 50%;
+    }
+}
+
+@keyframes react {
+    to {
+        width: 10%;
+    }
+}
+
+@keyframes git {
+    to {
+        width: 50%;
+    }
+}
+
+@keyframes php {
+    to {
+        width: 50%;
+    }
+}
+
+@keyframes sql {
+    to {
+        width: 60%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 110, 127, 0.99);
+    }
+    70% {
+        box-shadow: 0 0 0 2rem rgba(255, 110, 127, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 110, 127, 0);
+    }
+}
+
+
+/*End animations*/
+
+
+/*Start media queries*/
+
+
+/*End media queries*/
