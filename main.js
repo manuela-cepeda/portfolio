@@ -56,7 +56,7 @@ let value = 0;
 // trail index number
 let trailValue = 0;
 // interval (Duration)
-let interval = 4000;
+let interval = 10000;
 
 // Function to slide forward
 const slide = condition => {
@@ -119,8 +119,11 @@ trailValue = 1;
 trailValue = 2;
 } else if (value === 60) {
 trailValue = 3;
-} else {
+
+} else if (value === 80) {
 trailValue = 4;
+}else {
+    trailValue = 5; 
 }
 };
 
@@ -153,8 +156,10 @@ value = 20;
 value = 40;
 } else if (check.classList.contains("box4")) {
 value = 60;
-} else {
+}  else if (check.classList.contains("box5")) {
 value = 80;
+}else  {
+ value= 100;
 }
 // update trail based on value
 trailUpdate();
